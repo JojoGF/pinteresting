@@ -1,54 +1,58 @@
 
 <div class="row">
 
-  <div class=".col-md-2 button-right">
-      <p><%= link_to "Sign In", "#", class: "btn btn-success" =%>
+  <% if user_signed_in? %>
+  #do something
 
-      <%= link_to "Sign Up", "#", class: "btn btn-danger" =%> </p>
-  </div>
+  <% else %>
+    <div class=".col-md-2 button-right">
+        <p><%= link_to "Sign In", new_user_session_path, class: "btn btn-success" =%>
 
-  <div class="col-md-6">
-
-    <div class="jumbotron">
-      <h2 id="header-home">SHARE YOUR FAVORITES MOMENTS WITH YOUR FRIENDS</h2>
-
-      <ul id="list-home">
-        <li class="bullet-icon">Connect instantantly your photos with just one click</li>
-        <li class="bullet-icon">Meet people based in your photos preferences</li>
-        <li class="bullet-icon"><strong>Free Sign Up Now</strong></li>
-      </ul>
-
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="jumbotron">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputName1">Name</label>
-            <input type="Name" class="form-control" id="exampleInputName1" placeholder="Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="passwordconf" class="form-control" id="exampleInputConfirmPassword1" placeholder="Cofirm Password">
-          </div>
-
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Do you agree with our boaring policies?
-            </label>
-          </div>
-          <p><%= link_to "Free Sign Up", "#", class: "btn btn-danger" =%> </p>
-      </form>
+        <%= link_to "Sign Up", new_user_registration_path , class: "btn btn-danger" =%> </p>
     </div>
 
-  </div>
+    <div class="col-md-6">
+
+      <div class="jumbotron">
+        <h2 id="header-home">SHARE YOUR FAVORITES MOMENTS WITH YOUR FRIENDS</h2>
+
+        <ul id="list-home">
+          <li class="bullet-icon">Connect instantantly your photos with just one click</li>
+          <li class="bullet-icon">Meet people based in your photos preferences</li>
+          <li class="bullet-icon"><strong>Free Sign Up Now</strong></li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="jumbotron">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputName1">Name</label>
+              <input type="Name" class="form-control" id="exampleInputName1" placeholder="Name">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Confirm Password</label>
+              <input type="passwordconf" class="form-control" id="exampleInputConfirmPassword1" placeholder="Cofirm Password">
+            </div>
+
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Do you agree with our boaring policies?
+              </label>
+            </div>
+            <p><%= link_to "Sign Up", new_user_registration_path , class: "btn btn-danger" =%> </p>
+        </form>
+      </div>
+
+    <% end %>
 </div>
