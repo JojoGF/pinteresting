@@ -5,6 +5,42 @@ $navbar-default-bg: #34495e;
 $navbar-default-link-color: #ffffff;
 $jumbotron-bg:#ecf0f1;
 $jumbotron-color: #34495e;
-
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+
+.button-right{
+  text-align: right;
+  margin-right: 18px;
+}
+
+#header-home{
+  line-height: 110%;
+  text-align: center;
+  font-style: bold;
+  margin-top: -10px;
+
+}
+
+#list-home{
+  font-size: 20px;
+  line-height: 30px;
+  margin-top:20px;
+  font-style: bold;
+}
+
+.bullet-icon {
+  display: block;
+
+}
+
+.bullet-icon:before {
+    /*Using a Bootstrap glyphicon as the bullet point*/
+    content: "\e013";
+    font-family: 'Glyphicons Halflings';
+    font-size: 13px;
+    float: left;
+    margin-top: 4px;
+    margin-left: -17px;
+    color: black;
+}
