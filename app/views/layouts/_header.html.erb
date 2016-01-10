@@ -18,9 +18,27 @@
         <li><%= link_to "About", about_path %></li>
         <% if user_signed_in? %>
             <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "Account Settings", edit_user_registration_path %></li>
 
         <% else %>
-            <li><%= link_to "Sign In", new_user_session_path %></li>
+          <!--  <li><%= link_to "Sign In", new_user_session_path %></li>-->
+          <div class="btn-group .col-sm-4 dropdown-menu-high">
+            <button type="button" class="btn btn-success dropdown-toggle" id="sign-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sign in <span class="caret"></span>
+            </button>
+              <div class="dropdown-menu">
+                <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                  <%= f.text_field :email, class: "sign-input", placeholder: "Email" %>
+                  <%= f.password_field :password, class: "sign-input", placeholder: "Password" %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                  <br/>
+                  <%= f.submit 'Sign in', class: "btn-primary sign-final-btn" %>
+                  <br/>
+                  <%= link_to "Forgot your password?", new_password_path(:user) %>
+                <% end %>
+              </div>
+            </div>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

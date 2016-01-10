@@ -1,18 +1,30 @@
 
 <div class="row">
 
+
   <% if user_signed_in? %>
   #do something
 
   <% else %>
-    <div class=".col-md-2 button-right">
-        <p><%= link_to "Sign In", new_user_session_path, class: "btn btn-success" =%>
-
-        <%= link_to "Sign Up", new_user_registration_path , class: "btn btn-danger" =%> </p>
+  <div class="col-sm-12">
+    <div class=" panel panel-warning input-mobile">
+    <!--<div class="panel-heading">
+      <span class="signin-stringmobile">Sign in</span>
+    </div>-->
+    <div class="panel-body">
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.text_field :email, class: "sign-input", placeholder: "Email" %>
+        <%= f.password_field :password, class: "sign-input", placeholder: "Password" %>
+        <%= f.submit 'Sign in', class: "btn-primary sign-final-btn" %>
+      </div>
+      <div class="panel-footer">
+        <%= link_to "Forgot your password?", new_password_path(:user) %>
+      </div>
+      <% end %>
     </div>
+  </div>
 
     <div class="col-md-6">
-
       <div class="jumbotron">
         <h2 id="header-home">SHARE YOUR FAVORITES MOMENTS WITH YOUR FRIENDS</h2>
 
@@ -29,6 +41,7 @@
       <div class="jumbotron">
           <form>
             <div class="form-group">
+
               <label for="exampleInputName1">Name</label>
               <input type="Name" class="form-control" id="exampleInputName1" placeholder="Name">
             </div>
@@ -54,5 +67,8 @@
         </form>
       </div>
 
+    </div>
+
     <% end %>
+
 </div>
